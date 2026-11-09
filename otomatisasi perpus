@@ -1,0 +1,22 @@
+"""
+Sistem Otomatisasi Sirkulasi Buku Perpustakaan
+SMK Negeri 1 Kota Kediri
+Teknologi: Python 3.8+, Tkinter (GUI), SQLite (database)
+Tidak perlu install library tambahan.
+
+Fitur:
+- Kelola data buku dan anggota (siswa dan guru/karyawan)
+- Peminjaman otomatis: cek stok, batas pinjam, hitung jatuh tempo
+- Pengembalian otomatis: hitung keterlambatan dan denda, stok bertambah
+- Riwayat transaksi dengan penanda keterlambatan
+"""
+
+import sqlite3
+import tkinter as tk
+from tkinter import ttk, messagebox
+from datetime import date, timedelta
+
+NAMA_SEKOLAH = "SMK Negeri 1 Kota Kediri"
+DB_NAME = "perpustakaan_smkn1kediri.db"
+DENDA_PER_HARI = 500        # denda per hari keterlambatan (Rp. 5000 ), silakan sesuaikan
+TIPE_ANGGOTA = ["Siswa", "Guru/Karyawan"]
